@@ -1,0 +1,1 @@
+current_time += (end - start) / sample_rate
