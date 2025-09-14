@@ -1,0 +1,8 @@
+    <div className="App">
+      <div className="main-body"></div>
+      <div className="main-menu">
+        <Menu />
+      </div>
+      <div className="main-body"></div>
+
+    </div>
