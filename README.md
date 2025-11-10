@@ -6,19 +6,20 @@
 ---
 
 ## 📌 Table of Contents
-- [Overview](#overview)  
-- [Features](#features)  
-- [How It Works](#how-it-works)  
-- [Tech Stack](#tech-stack)  
-- [Usage](#usage)  
-- [Why CapGenie](#why-capgenie)  
-- [Future Plans](#future-plans)  
-- [Requirements](#requirements)  
-- [Acknowledgements](#acknowledgements)  
+- <a href="#overview">Overview</a>  
+- <a href="#features">Features</a>  
+- <a href="#how-it-works">How It Works</a>  
+- <a href="#tech-stack">Tech Stack</a>  
+- <a href="#usage">Usage</a>  
+- <a href="#why-capgenie">Why CapGenie</a>  
+- <a href="#future-plans">Future Plans</a>  
+- <a href="#requirements">Requirements</a>  
+- <a href="#acknowledgements">Acknowledgements</a>  
 
 ---
 
-## 🔍 Overview
+<h2 id="overview">🔍 Overview</h2>
+
 **CapGenie** is an AI-powered application designed to generate **real-time captions** from both **video and audio** sources using the **OpenAI Whisper** speech recognition model.  
 
 It’s built to make online and offline media content more **inclusive**, **accurate**, and **accessible**, allowing users to follow along easily — even in noisy environments or with varying accents.  
@@ -30,7 +31,7 @@ The system features:
 
 ---
 
-## 🚀 Features
+<h2 id="features">🚀 Features</h2>
 
 | Feature | Description |
 |----------|-------------|
@@ -43,29 +44,30 @@ The system features:
 
 ---
 
-## 🧠 How It Works
+<h2 id="how-it-works">🧠 How It Works</h2>
 
-<img width="648" height="325" alt="image" src="https://github.com/user-attachments/assets/2f027ef0-59d0-401e-86f7-3305b26482bc" />
-
+<p align="center">
+  <img width="648" height="325" alt="CapGenie Architecture" src="https://github.com/user-attachments/assets/2f027ef0-59d0-401e-86f7-3305b26482bc" />
+</p>
 
 1. **Upload a Video or Audio File**  
-   Users upload video/audio content via the React interface.
+   Users upload video/audio content via the React interface.  
 
 2. **Audio Extraction**  
-   Using **FFmpeg**, CapGenie extracts the audio from the video and converts it to a mono `.wav` file sampled at **16kHz**.
+   Using **FFmpeg**, CapGenie extracts the audio from the video and converts it to a mono `.wav` file sampled at **16kHz**.  
 
 3. **Audio Chunking**  
-   The backend divides the audio into small chunks for streaming to the Whisper model.
+   The backend divides the audio into small chunks for streaming to the Whisper model.  
 
 4. **Speech Recognition**  
-   **OpenAI Whisper** performs real-time transcription, converting speech into text with minimal latency.
+   **OpenAI Whisper** performs real-time transcription, converting speech into text with minimal latency.  
 
 5. **Live Caption Streaming**  
-   Captions are displayed continuously in the frontend via **SocketIO**, providing smooth real-time updates.
+   Captions are displayed continuously in the frontend via **SocketIO**, providing smooth real-time updates.  
 
 ---
 
-## 💻 Tech Stack
+<h2 id="tech-stack">💻 Tech Stack</h2>
 
 | Layer | Technology |
 |--------|-------------|
@@ -78,7 +80,7 @@ The system features:
 
 ---
 
-## 🧩 Usage
+<h2 id="usage">🧩 Usage</h2>
 
 CapGenie can be used in various real-world scenarios:  
 
@@ -90,13 +92,18 @@ CapGenie can be used in various real-world scenarios:
 
 **Workflow Summary:**  
 Upload → Audio Extracted → Whisper Transcribes → Captions Stream Live on UI  
-<img width="506" height="265" alt="image" src="https://github.com/user-attachments/assets/c464ea4f-712c-433d-821d-529045ef4303" />
 
-<img width="503" height="268" alt="image" src="https://github.com/user-attachments/assets/a3f27cf4-d737-41c3-b6f7-4fa10fb63f22" />
+<p align="center">
+  <img width="506" height="265" alt="CapGenie Workflow 1" src="https://github.com/user-attachments/assets/c464ea4f-712c-433d-821d-529045ef4303" />
+</p>
+
+<p align="center">
+  <img width="503" height="268" alt="CapGenie Workflow 2" src="https://github.com/user-attachments/assets/a3f27cf4-d737-41c3-b6f7-4fa10fb63f22" />
+</p>
 
 ---
 
-## 💡 Why CapGenie
+<h2 id="why-capgenie">💡 Why CapGenie</h2>
 
 CapGenie isn’t just another transcription tool — it’s built for **inclusivity and accessibility**.  
 
@@ -110,7 +117,7 @@ CapGenie isn’t just another transcription tool — it’s built for **inclusiv
 
 ---
 
-## 🔮 Future Plans
+<h2 id="future-plans">🔮 Future Plans</h2>
 
 | Planned Feature | Description |
 |-----------------|-------------|
@@ -123,7 +130,7 @@ CapGenie isn’t just another transcription tool — it’s built for **inclusiv
 
 ---
 
-## ⚙️ Requirements
+<h2 id="requirements">⚙️ Requirements</h2>
 
 | Component | Details |
 |------------|----------|
@@ -138,7 +145,7 @@ CapGenie isn’t just another transcription tool — it’s built for **inclusiv
 
 ---
 
-## 🙏 Acknowledgements
+<h2 id="acknowledgements">🙏 Acknowledgements</h2>
 
 Thanks to the open-source community and tools that made CapGenie possible:  
 
@@ -149,6 +156,5 @@ Thanks to the open-source community and tools that made CapGenie possible:
 - 🔌 [Flask-SocketIO](https://flask-socketio.readthedocs.io/en/latest/) – Real-time communication  
 
 ---
-
 
 ⭐ *If you found this project useful, give it a star on GitHub!* 🌟  
