@@ -1,68 +1,154 @@
-# CapGenie--Realtime-Caption-Generator
-CapGenie is a real-time caption generator that extracts audio from video content and generates accurate captions using advanced ASR (Automatic Speech Recognition) models such as Whisper. Designed for accessibility and inclusivity, it enables individuals with hearing impairments, educators, broadcasters, and event organizers to make multimedia content more accessible.
+# 🎧 CapGenie – Real-Time Caption Generator  
+### AI-Powered Accessibility for Audio & Video Content  
 
-**✨ Features**
+**Objective:** Build a **real-time captioning system** that uses **OpenAI Whisper ASR** to instantly convert speech into text, improving accessibility for users — especially individuals with hearing impairments — across education, broadcasting, and media.
 
-🎙 Real-Time Transcription – Accurate, low-latency captions powered by Whisper ASR.
+---
 
-🎨 Customizable Captions – Adjust font size, color, style, and background for readability.
+## 📌 Table of Contents
+- [Overview](#overview)  
+- [Features](#features)  
+- [How It Works](#how-it-works)  
+- [Tech Stack](#tech-stack)  
+- [Usage](#usage)  
+- [Why CapGenie](#why-capgenie)  
+- [Future Plans](#future-plans)  
+- [Requirements](#requirements)  
+- [Acknowledgements](#acknowledgements)  
 
-🖥 User-Friendly Interface – React-based design with smooth uploads and settings.
+---
 
-**💡 Why CapGenie?**
+## 🔍 Overview
+**CapGenie** is an AI-powered application designed to generate **real-time captions** from both **video and audio** sources using the **OpenAI Whisper** speech recognition model.  
 
-Inclusive – Built to support individuals with hearing impairments.
+It’s built to make online and offline media content more **inclusive**, **accurate**, and **accessible**, allowing users to follow along easily — even in noisy environments or with varying accents.  
 
-Cost-Effective – Leverages open-source ASR tools like Whisper to reduce licensing costs.
+The system features:  
+- A **React-based frontend** for uploading and viewing content.  
+- A **Flask backend** for real-time audio processing and transcription.  
+- Integration with **Flask-SocketIO** for live caption streaming.  
 
-Lightweight – Runs efficiently on mid-range hardware.
+---
 
-Accurate – Performs well across accents and moderate background noise.
+## 🚀 Features
 
-**Proposed Algorithm:**
+| Feature | Description |
+|----------|-------------|
+| 🗣 **Real-Time Transcription** | Converts speech to text instantly using Whisper ASR |
+| 🎨 **Customizable Captions** | Adjust font size, color, style, and background for readability |
+| ⚙️ **User-Friendly Interface** | Built with React for simple uploads and real-time display |
+| 🎯 **High Accuracy** | Handles various accents and moderate background noise efficiently |
+| 🌐 **Multilingual Ready** | Future support for multiple languages and domains |
+| 📡 **Live Streaming (Coming Soon)** | Real-time captioning for webinars, lectures, and events |
 
-<img width="656" height="323" alt="image" src="https://github.com/user-attachments/assets/f8837990-6a7a-4fbc-bf15-118ec78341d8" />
+---
 
-**Step 1: Audio Preprocessing**
+## 🧠 How It Works
 
-Convert input audio (from video/raw) into mono.
+<img width="648" height="325" alt="image" src="https://github.com/user-attachments/assets/2f027ef0-59d0-401e-86f7-3305b26482bc" />
 
-Resample to 16kHz.
 
-Save as .wav for Whisper compatibility.
+1. **Upload a Video or Audio File**  
+   Users upload video/audio content via the React interface.
 
-**Step 2: Video to Audio Extraction**
+2. **Audio Extraction**  
+   Using **FFmpeg**, CapGenie extracts the audio from the video and converts it to a mono `.wav` file sampled at **16kHz**.
 
-Use FFmpeg to extract audio track.
+3. **Audio Chunking**  
+   The backend divides the audio into small chunks for streaming to the Whisper model.
 
-Save as .wav.
+4. **Speech Recognition**  
+   **OpenAI Whisper** performs real-time transcription, converting speech into text with minimal latency.
 
-Ensure Whisper’s format requirements.
+5. **Live Caption Streaming**  
+   Captions are displayed continuously in the frontend via **SocketIO**, providing smooth real-time updates.
 
-**Step 3: Real-Time Streaming Transcription**
+---
 
-Split audio into small chunks.
+## 💻 Tech Stack
 
-Stream chunks to Whisper for transcription.
+| Layer | Technology |
+|--------|-------------|
+| **Frontend** | React.js |
+| **Backend** | Flask + Flask-SocketIO |
+| **Speech-to-Text Model** | OpenAI Whisper |
+| **Audio Processing** | FFmpeg, Librosa |
+| **Languages** | Python, JavaScript |
+| **Version Control** | Git, GitHub |
 
-Update captions continuously with minimal latency.
+---
 
-**Step 4: ASR Model Setup**
+## 🧩 Usage
 
-Initialize Whisper ASR (openai-whisper).
+CapGenie can be used in various real-world scenarios:  
 
-Configure language & transcription mode.
+- 🎓 **Education:** Real-time captioning for lectures and webinars.  
+- 🎙 **Broadcasting:** Live caption support during TV shows or podcasts.  
+- 🧏 **Accessibility:** Helps individuals with hearing impairments follow media content.  
+- 🏛 **Public Events:** Provides captions for conferences or government meetings.  
+- 🎬 **Media Post-Production:** Adds captions to pre-recorded videos quickly.  
 
-Optimize with GPU acceleration if available.
+**Workflow Summary:**  
+Upload → Audio Extracted → Whisper Transcribes → Captions Stream Live on UI  
+<img width="506" height="265" alt="image" src="https://github.com/user-attachments/assets/c464ea4f-712c-433d-821d-529045ef4303" />
 
-**Tech Stack**
+<img width="503" height="268" alt="image" src="https://github.com/user-attachments/assets/a3f27cf4-d737-41c3-b6f7-4fa10fb63f22" />
 
-Frontend: React, Tailwind CSS
+---
 
-Backend: Flask, Flask-SocketIO
+## 💡 Why CapGenie
 
-ASR Engine: OpenAI Whisper
+CapGenie isn’t just another transcription tool — it’s built for **inclusivity and accessibility**.  
 
-Audio Tools: ffmpeg
+| Benefit | Description |
+|----------|-------------|
+| 🦻 **Accessibility Focused** | Designed to make media understandable for everyone |
+| 🧠 **AI-Powered Accuracy** | Whisper ensures precision even in noisy or fast speech environments |
+| 💰 **Cost-Effective** | Open-source implementation with minimal infrastructure costs |
+| ⚡ **Low Latency** | Chunk-based streaming ensures near-instant captioning |
+| 🖥 **Customizable UI** | Captions can be visually tailored for better readability |
 
-Infrastructure: GPU support for performance (optional)
+---
+
+## 🔮 Future Plans
+
+| Planned Feature | Description |
+|-----------------|-------------|
+| 🌍 **Multilingual Support** | Add captioning and translation in multiple languages |
+| 🎥 **Live Streaming Integration** | Enable captions for live events and broadcasts |
+| 🩺 **Domain-Specific Vocabulary** | Improve accuracy for legal, medical, and educational content |
+| ☁️ **Cloud Deployment** | Host and scale for concurrent users globally |
+| 🧾 **Caption Export Options** | Allow downloading captions in `.srt` or `.vtt` format |
+| 📊 **Analytics Dashboard** | Monitor caption accuracy, latency, and system performance |
+
+---
+
+## ⚙️ Requirements
+
+| Component | Details |
+|------------|----------|
+| **Python** | 3.9+ |
+| **Node.js** | 16+ |
+| **FFmpeg** | Installed and added to system path |
+| **Whisper ASR** | Installed via `pip install openai-whisper` |
+| **Libraries** | Flask, Flask-SocketIO, Librosa, React, Axios |
+| **GPU (Optional)** | For faster real-time transcription |
+
+💡 *CapGenie can run efficiently on most systems. GPU acceleration is optional but improves performance.*
+
+---
+
+## 🙏 Acknowledgements
+
+Thanks to the open-source community and tools that made CapGenie possible:  
+
+- 🧠 [OpenAI Whisper](https://github.com/openai/whisper) – Automatic Speech Recognition Model  
+- 🎧 [FFmpeg](https://ffmpeg.org/) – Audio extraction and conversion  
+- ⚙️ [Flask](https://flask.palletsprojects.com/) – Backend framework  
+- 💻 [React](https://react.dev/) – Frontend library for responsive UI  
+- 🔌 [Flask-SocketIO](https://flask-socketio.readthedocs.io/en/latest/) – Real-time communication  
+
+---
+
+
+⭐ *If you found this project useful, give it a star on GitHub!* 🌟  
